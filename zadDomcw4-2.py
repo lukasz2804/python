@@ -1,6 +1,5 @@
 #napisz skrypt ktory bedzie dzialal jak ksiazka adresowa Dodaj,usun,edytuj, wyswietl w tabeli# imie nazwisko adres ,email
 import os
-from prettytable import PrettyTable
 
 class Ksiazka:
     def __init__(self, imie, nazwisko, miasto, nrDomu,nrTel):
@@ -14,8 +13,6 @@ class Ksiazka:
 ctn = True;
 ctnid = True;
 baza = {}
-baza['0'] = Ksiazka("1234","26413","31634","46116","564136413")
-baza['1'] = Ksiazka("2","3","4","5","6")
 while(ctn):
     print "Witaj, co chcesz zrobic?"
     print "1 - Dodaj rekord:"
@@ -25,23 +22,28 @@ while(ctn):
     print "5 - zakoncz"
     do = input("?\n")
     if(do == 1):
-        ctnid=True
-        while(ctnid):
-            id = raw_input("podaj swoj identyfikator(pesel)\n")
-            if id in baza.keys():
-                print 'taki klucz juz istnieje'
-            else:
-                ctnid=False
-                break
-        im = raw_input("podaj swoje imie")
-        nz = raw_input("podaj swoje nazwisko")
-        mi = raw_input("podaj miasto")
-        nrDomu = raw_input("podaj numer domu")
-        nrTel = raw_input("podaj numer telefonu")
-        baza[id] = Ksiazka(im,nz,mi,nrDomu,nrTel)
+        howManyADD = input("podaj ile chcesz dodac rekordow")
+        for z in range(howManyADD):
+            ctnid=True
+            while(ctnid):
+                id = raw_input("podaj swoj identyfikator(pesel)\n")
+                if id in baza.keys():
+                    print 'taki klucz juz istnieje'
+                else:
+                    ctnid=False
+                    break
+            im = raw_input("podaj swoje imie")
+            nz = raw_input("podaj swoje nazwisko")
+            mi = raw_input("podaj miasto")
+            nrDomu = raw_input("podaj numer domu")
+            nrTel = raw_input("podaj numer telefonu")
+            baza[id] = Ksiazka(im,nz,mi,nrDomu,nrTel)
     elif(do == 2):
         id = raw_input("podaj swoj identyfikator(pesel)")
-        del(baza[id])
+        if(baza.has_key(id)):
+            del(baza[id])
+        else:
+            print "nie ma takiego peselu w bazie"
     elif(do == 3):
         id = raw_input("podaj swoj identyfikator(pesel)")
         print 'ktore pole chcesz edytowac?'
@@ -69,11 +71,12 @@ while(ctn):
         else:
             break;
     elif(do == 4):
-        t = PrettyTable(['ID','Imie', 'Nazwisko','Miasto','Nr Domu','Nr telefonu'])
-        for key in baza.keys():
-            t.add_row([key, baza[key].imie,baza[key].nazwisko,baza[key].miasto,baza[key].nrDomu,baza[key].nrTel])
-            #print key+"\t"+baza[key].imie+"\t | \t"+baza[key].nazwisko+"\t | \t"+baza[key].miasto+"\t | \t"+baza[key].nrDomu+"\t | \t"+baza[key].nrTel+"|"
-        print t
+        if(len(baza.keys()) != 0):
+            print "{:<8} {:<15} {:<10} {:<10} {:<10} {:<10}".format('KLUCZ', 'IMIE', 'NAZWISKO','MIASTO','NR.DOMU',"NR.TELEFONU")
+            for k in baza.keys():
+                print "{:<8} {:<15} {:<10} {:<10} {:<10} {:<10}".format(k, baza[k].imie, baza[k].nazwisko,baza[k].miasto,baza[k].nrDomu,baza[k].nrTel)
+        else:
+            print'Baza jest pusta'
     elif(do == 5):
         break
     else:
