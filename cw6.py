@@ -1,72 +1,34 @@
-##prace na plikach i katalogach
-#-*- coding: utf-8 -*-
-
-from os import *
-
-print getcwd()
-
-print getcwd()
-
-print listdir('..')
-
-print listdir(r'/home/student/PycharmProjects/untitled')
-
-import fnmatch
-print fnmatch.fnmatch('Python','P*n')
-print fnmatch.fnmatch('Python','P*n')
-
-print [x for x in listdir(r'/home/student/PycharmProjects/untitled')
-if fnmatch.fnmatch(x,'*[61].*')]
-
-import glob
-
-for x in glob.glob(r'/home/student/PycharmProjects/untitled/*[61].*'):
-    print x
-
-#rozdzielenie na sciezke i plik
-print path.split('/home/student/PycharmProjects/untitled/cw6.py')
-
-for x in glob.glob(r'../*[61].*'):
-    print path.split(x)[1]
-
-print path.join('/','home')
-print path.join(r'/','home')
-
-print path.isabs(r'../cw6.py')
-print path.isabs(r'/home/student/PycharmProjects/untitled/cw6.py')
-
-
-print path.exists(r'/home/student/PycharmProjects/untitled/cw6.py')
-
-print path.exists(r'/home/student/PycharmProjects/untitled/cw4246.py')
-
-print path.exists('nTest')
-print listdir('.')
-
-
-print path.isfile('nTest')
-print path.isfile('cw6.py')
-
-
-print path.isdir('nTest')
-print path.isdir('cw6.py')
-
-
-
-
-print path.ismount('nTest')
-print path.ismount('/home')
-
-print path.getsize('cw6.py')
-print path.getsize('nTest')
-
-for x in listdir('.'):
-    print x, path.getsize(x)
-
-from time import  ctime
-print ctime(path.getctime('cw6.py'))
-
-print ctime(path.getmtime('cw6.py'))
-
-#for sciezka, podkatalogi, pliki in walk(r'./'):
-    #print 'w katalogu %s znajduje sie %i  bajtow w %i plikach' %(sciezka, sum(path.getsize(path.join(sciezka,nazwa)) for nazwa in pliki,len(pliki))
+     0093    165 _P1_3	=	0x0093
+                    0094    166 _P1_4	=	0x0094
+                    0095    167 _P1_5	=	0x0095
+                    0096    168 _P1_6	=	0x0096
+                    0097    169 _P1_7	=	0x0097
+                    0098    170 _RI	=	0x0098
+                    0099    171 _TI	=	0x0099
+                    009A    172 _RB8	=	0x009a
+                    009B    173 _TB8	=	0x009b
+                    009C    174 _REN	=	0x009c
+                    009D    175 _SM2	=	0x009d
+                    009E    176 _SM1	=	0x009e
+                    009F    177 _SM0	=	0x009f
+                    00A0    178 _P2_0	=	0x00a0
+                    00A1    179 _P2_1	=	0x00a1
+                    00A2    180 _P2_2	=	0x00a2
+                    00A3    181 _P2_3	=	0x00a3
+                    00A4    182 _P2_4	=	0x00a4
+                    00A5    183 _P2_5	=	0x00a5
+                    00A6    184 _P2_6	=	0x00a6
+                    00A7    185 _P2_7	=	0x00a7
+                    00A8    186 _EX0	=	0x00a8
+                    00A9    187 _ET0	=	0x00a9
+                    00AA    188 _EX1	=	0x00aa
+                    00AB    189 _ET1	=	0x00ab
+                    00AC    190 _ES	=	0x00ac
+                    00AF    191 _EA	=	0x00af
+                    00B0    192 _P3_0	=	0x00b0
+                    00B1    193 _P3_1	=	0x00b1
+                    00B2    194 _P3_2	=	0x00b2
+                    00B3    195 _P3_3	=	0x00b3
+                    00B4    196 _P3_4	=	0x00b4
+                    00B5    197 _P3_5	=	0x00b5
+              
